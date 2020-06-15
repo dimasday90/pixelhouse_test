@@ -20,7 +20,7 @@ Run `node sort.js`
 
 From the root of this folder, run these commands
 ```
-$ cd pixelhouse_kanban_test
+$ cd simple_kanban_vue
 $ npm install
 $ npm run serve
 ```
