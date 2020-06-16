@@ -14,9 +14,6 @@ export default {
   components: {
     AppBar,
     HomeCarousel
-  },
-  created () {
-    document.title = 'PXH Kanban Test'
   }
 }
 </script>
