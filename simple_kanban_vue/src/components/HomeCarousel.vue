@@ -45,9 +45,6 @@ export default {
     onSlideEnd (slide) {
       this.sliding = false
     }
-  },
-  created () {
-    document.title = 'PXH Kanban Test'
   }
 }
 </script>

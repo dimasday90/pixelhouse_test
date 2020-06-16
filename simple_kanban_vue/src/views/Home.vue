@@ -1,19 +1,22 @@
 <template>
   <div>
-    <HomeAppBar />
+    <AppBar />
     <HomeCarousel />
   </div>
 </template>
 
 <script>
-import HomeAppBar from '../components/HomeAppbar'
+import AppBar from '../components/Appbar'
 import HomeCarousel from '../components/HomeCarousel'
 
 export default {
   name: 'Home',
   components: {
-    HomeAppBar,
+    AppBar,
     HomeCarousel
+  },
+  created () {
+    document.title = 'PXH Kanban Test'
   }
 }
 </script>

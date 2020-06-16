@@ -31,7 +31,7 @@ let alphanumeric = [
   "Jusuf",
 ];
 
-function insertSort(arr) {
+function ascInsertSort(arr) {
   for (let firstIndex = 1; firstIndex < arr.length; firstIndex++) {
     for (let i = firstIndex; i > 0; i--) {
       if (arr[i] < arr[i - 1]) {
@@ -46,7 +46,22 @@ function insertSort(arr) {
   return arr;
 }
 
-function ascSortData(arr) {
+function descInsertSort(arr) {
+  for (let firstIndex = 1; firstIndex < arr.length; firstIndex++) {
+    for (let i = firstIndex; i > 0; i--) {
+      if (arr[i] > arr[i - 1]) {
+        let swap = arr[i];
+        arr[i] = arr[i - 1];
+        arr[i - 1] = swap;
+      } else {
+        break;
+      }
+    }
+  }
+  return arr;
+}
+
+function sortData(arr, cmd = "asc") {
   let stringArr = [];
   let numberArr = [];
 
@@ -58,13 +73,23 @@ function ascSortData(arr) {
     }
   }
 
-  stringArr = insertSort(stringArr);
-  numberArr = insertSort(numberArr);
-
-  return [...numberArr, ...stringArr];
+  if (cmd === "desc") {
+    numberArr = descInsertSort(numberArr);
+    stringArr = descInsertSort(stringArr);
+    return [...stringArr, ...numberArr];
+  } else {
+    numberArr = ascInsertSort(numberArr);
+    stringArr = ascInsertSort(stringArr);
+    return [...numberArr, ...stringArr];
+  }
 }
 
-console.log("=====JAVASCRIPT TEST 3=====");
-console.log(ascSortData(numeric));
-console.log(ascSortData(string));
-console.log(ascSortData(alphanumeric));
+console.log("=====JAVASCRIPT TEST 3 ASC=====");
+console.log(sortData(numeric));
+console.log(sortData(string));
+console.log(sortData(alphanumeric));
+
+console.log("=====JAVASCRIPT TEST 3 DESC=====");
+console.log(sortData(numeric, "desc"));
+console.log(sortData(string, "desc"));
+console.log(sortData(alphanumeric, "desc"));
